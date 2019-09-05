@@ -1,0 +1,26 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: zuul-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/, http://localhost:8762/eureka/, http://localhost:8763/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+
+zuul:
+  routes:
+    # 调用/invoker/invoker时， 会将请求重定向到feign-invoker服务上面的/invoker, 下面两种写法等效
+    # stripPrefix: true 默认会去掉前缀
+    # feign-invoker: /invoker/**
+    feign-invoker:
+      path: /feign/**
+      serviceId: feign-invoker
+    ribbon-invoker:
+      path: /ribbon/**
+      serviceId: ribbon-invoker

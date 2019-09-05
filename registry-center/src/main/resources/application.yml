@@ -1,0 +1,58 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: registry-center
+  profiles: 8761
+
+eureka:
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
+
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka/, http://localhost:8763/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+---
+server:
+  port: 8762
+
+spring:
+  application:
+    name: registry-center
+  profiles: 8762
+
+eureka:
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
+
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/, http://localhost:8763/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+---
+server:
+  port: 8763
+
+spring:
+  application:
+    name: registry-center
+  profiles: 8763
+
+eureka:
+  server:
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000
+
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka/, http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
