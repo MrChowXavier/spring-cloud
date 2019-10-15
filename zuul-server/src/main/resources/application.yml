@@ -27,3 +27,7 @@ zuul:
   host:
     connect-timeout-millis: 10000
     connection-request-timeout-millis: 10000
+  # 关闭不需要执行的过滤器, 执行需要关闭的类名，过滤器的类型
+  SecondPreFilter:
+    pre:
+      disable: true
