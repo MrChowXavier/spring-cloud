@@ -27,3 +27,9 @@ zuul:
   SecondPreFilter:
     pre:
       disable: true
+management:
+  endpoints:
+    web:
+      base-path: /monitor
+      exposure:
+        include: ["*"]

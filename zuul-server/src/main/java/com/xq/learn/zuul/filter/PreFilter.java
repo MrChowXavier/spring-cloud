@@ -5,6 +5,7 @@ import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -16,10 +17,12 @@ import org.springframework.stereotype.Component;
  * filter组件必须注册到spring的IOC容器中
  * 利用shouldFilter方法灵活控制过滤器是否启用，否则就算第一个过滤器执行失败，后面的过滤器也会执行
  * 只有shouldFilter返回false时，过滤器不会执行
+ * RefreshScope注解的作用是刷新配置，配合actuator组件来实现： /refresh
  * @author xiaoqiang
  * @date 2019/10/16 1:18
  */
 @Component
+@RefreshScope
 public class PreFilter extends ZuulFilter
 {
     /**
