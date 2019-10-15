@@ -1,0 +1,27 @@
+server:
+  port: 5672
+
+spring:
+  application:
+    name: rabbit-producer
+  rabbitmq:
+    host: learn
+    port: 5672
+    cache:
+      connection:
+        # spring默认使用CachingConnectionFactory来缓存channel，也可以缓存connection，当缓存connection时不支持
+        # 自动声明queue， exchange， binding
+        mode: channel
+      channel:
+        checkout-timeout: 10s
+        size: 50
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/, http://localhost:8762/eureka/, http://localhost:8763/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+
+# 配置rabbitmq
