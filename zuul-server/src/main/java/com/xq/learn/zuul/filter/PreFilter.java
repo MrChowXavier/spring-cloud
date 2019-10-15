@@ -4,6 +4,7 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class PreFilter extends ZuulFilter
 {
+    /**
+     * 从配置中心获取配置信息
+     */
+    @Value("${token}")
+    private boolean token;
+
     /**
      * 返回过滤器的类型
      * @return

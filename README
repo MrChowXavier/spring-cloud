@@ -4,3 +4,4 @@ server-provider: 服务提供者，分布式部署，有三个端口8081, 8082, 
 feign-invoker: 使用feign实现的客户端负载均衡。
 ribbon-invoker: 使用ribbon实现的客户端负载均衡。
 zuul：路由控制，将匹配到的不同前缀重定向到不同的服务实例上面去处理。
+config: 配置中心，访问的格式：http://ip:port/项目名/profile/分支名
