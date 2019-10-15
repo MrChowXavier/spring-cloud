@@ -27,6 +27,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.xq.learn</groupId>
+            <artifactId>common-dto</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

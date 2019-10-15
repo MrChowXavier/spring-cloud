@@ -8,7 +8,20 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/, http://localhost:8762/eureka/, http://localhost:8763/eureka/
+      defaultZone: http://xiaoqiang:xiaoqiang@localhost:8761/eureka/, http://xiaoqiang:xiaoqiang@localhost:8762/eureka/, http://xiaoqiang:xiaoqiang@localhost:8763/eureka/
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
+
+# 开启容错机制hystrix
+feign:
+  hystrix:
+    enabled: true
+  httpclient:
+    connection-timeout: 5000
+
+# 配置负载均衡策略，ribbon在包com.netflix.loadbalancer下面有很多Rule结尾的类，每个类代表不同的负载均衡策略
+# 配置时需要以负载均衡的微服务（服务提供者）开始配置。
+server-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

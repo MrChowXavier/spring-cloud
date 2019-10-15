@@ -5,6 +5,10 @@ spring:
   application:
     name: registry-center
   profiles: 8761
+  security:
+    user:
+      name: xiaoqiang
+      password: xiaoqiang
 
 eureka:
   server:
@@ -13,7 +17,7 @@ eureka:
 
   client:
     service-url:
-      defaultZone: http://localhost:8762/eureka/, http://localhost:8763/eureka/
+      defaultZone: http://xiaoqiang:xiaoqiang@localhost:8762/eureka/, http://xiaoqiang:xiaoqiang@localhost:8763/eureka/
     register-with-eureka: true
     fetch-registry: true
 
@@ -25,6 +29,10 @@ spring:
   application:
     name: registry-center
   profiles: 8762
+  security:
+    user:
+      name: xiaoqiang
+      password: xiaoqiang
 
 eureka:
   server:
@@ -33,8 +41,10 @@ eureka:
 
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/, http://localhost:8763/eureka/
+      defaultZone: http://xiaoqiang:xiaoqiang@localhost:8761/eureka/, http://xiaoqiang:xiaoqiang@localhost:8763/eureka/
+    # 是否将自己注册到注册中心，集群部署时需要设置成true
     register-with-eureka: true
+    # 是否从远程同步信息
     fetch-registry: true
 
 ---
@@ -45,6 +55,10 @@ spring:
   application:
     name: registry-center
   profiles: 8763
+  security:
+    user:
+      name: xiaoqiang
+      password: xiaoqiang
 
 eureka:
   server:
@@ -53,6 +67,6 @@ eureka:
 
   client:
     service-url:
-      defaultZone: http://localhost:8762/eureka/, http://localhost:8761/eureka/
+      defaultZone: http://xiaoqiang:xiaoqiang@localhost:8762/eureka/, http://xiaoqiang:xiaoqiang@localhost:8761/eureka/
     register-with-eureka: true
     fetch-registry: true

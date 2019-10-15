@@ -15,6 +15,7 @@
         <module>zuul-server</module>
         <module>feign-invoker</module>
         <module>ribbon-invoker</module>
+        <module>common-dto</module>
     </modules>
 
     <properties>
