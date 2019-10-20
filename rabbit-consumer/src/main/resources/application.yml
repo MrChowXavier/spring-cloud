@@ -1,0 +1,24 @@
+server:
+  port: 5673
+
+spring:
+  application:
+    name: rabbit-consumer
+  rabbitmq:
+    host: learn
+    port: 5672
+    cache:
+      channel:
+        checkout-timeout: 10s
+        size: 50
+    username: admin
+    password: xiaoqiang
+    connection-timeout: 1000s
+    listener:
+      simple:
+        acknowledge-mode: manual
+
+rabbit:
+  connection:
+    thread:
+      prefix: consumer-connect

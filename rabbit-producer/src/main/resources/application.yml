@@ -9,8 +9,8 @@ spring:
     port: 5672
     cache:
       connection:
-        # springÄ¬ÈÏÊ¹ÓÃCachingConnectionFactoryÀ´»º´æchannel£¬Ò²¿ÉÒÔ»º´æconnection£¬µ±»º´æconnectionÊ±²»Ö§³Ö
-        # ×Ô¶¯ÉùÃ÷queue£¬ exchange£¬ binding
+        # springé»˜è®¤ä½¿ç”¨CachingConnectionFactoryæ¥ç¼“å­˜channelï¼Œä¹Ÿå¯ä»¥ç¼“å­˜connectionï¼Œå½“ç¼“å­˜connectionæ—¶ä¸æ”¯æŒ
+        # è‡ªåŠ¨å£°æ˜queueï¼Œ exchangeï¼Œ binding
         mode: channel
       channel:
         checkout-timeout: 10s
@@ -19,9 +19,13 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/, http://localhost:8762/eureka/, http://localhost:8763/eureka/
+      defaultZone: http://xiaoqiang:xiaoqiang@localhost:8761/eureka/, http://xiaoqiang:xiaoqiang@localhost:8762/eureka/, http://xiaoqiang:xiaoqiang@localhost:8763/eureka/
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
 
-# ÅäÖÃrabbitmq
+# rabbité…ç½®
+rabbit:
+  connection:
+    thread:
+      prefix: producer-connect

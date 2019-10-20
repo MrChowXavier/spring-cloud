@@ -6,37 +6,32 @@
         <groupId>com.xq.learn</groupId>
         <artifactId>spring-cloud</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>rabbit-producer</artifactId>
-    <version>1.0.0</version>
-    <name>rabbit-producer</name>
-    <description>Demo project for rabbitmq</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <artifactId>rabbit-consumer</artifactId>
+    <name>rabbit-consumer</name>
+    <description>Demo project for Spring RabbitMQ</description>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- amqp依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.amqp</groupId>
