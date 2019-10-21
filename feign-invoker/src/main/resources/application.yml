@@ -4,6 +4,13 @@ server:
 spring:
   application:
     name: feign-invoker
+  zipkin:
+    # 配置zipkin服务地址
+    base-url: http://localhost:7700
+  # 设置采样率
+  sleuth:
+    sampler:
+      probability: 1.0
 
 eureka:
   client:
@@ -25,3 +32,7 @@ feign:
 server-provider:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+logging:
+  level:
+    root: debug

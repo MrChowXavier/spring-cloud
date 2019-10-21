@@ -9,8 +9,8 @@ spring:
       server:
         git:
           uri: https://github.com/xiaoqiangjava/config-demo.git
-          username: xxxxx
-          password: xxxxx
+          username: 1663589895@qq.com
+          password: xiaoqianggit93321
           search-paths: config-file
 
 eureka:

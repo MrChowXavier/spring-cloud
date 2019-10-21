@@ -1,7 +1,8 @@
 spring cloud项目：
 registry-center: 服务注册中心，采用集群模式部署，启动时需要指定active profiles为对应的端口号8761, 8762, 8763。
 server-provider: 服务提供者，分布式部署，有三个端口8081, 8082, 8083对外提供服务。
-feign-invoker: 使用feign实现的客户端负载均衡。
+feign-invoker: 使用feign实现的客户端负载均衡, Hystrix熔断。
 ribbon-invoker: 使用ribbon实现的客户端负载均衡。
 zuul：路由控制，将匹配到的不同前缀重定向到不同的服务实例上面去处理。
 config: 配置中心，访问的格式：http://ip:port/项目名/profile/分支名
+sleuth：整合sleuth和zipkin追踪微服务调用链。

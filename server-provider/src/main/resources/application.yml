@@ -5,7 +5,11 @@ spring:
   application:
     name: server-provider
   profiles: 8081
-
+  zipkin:
+    base-url: http://localhost:7700
+  sleuth:
+    sampler:
+      probability: 1.0
 eureka:
   client:
     service-url:

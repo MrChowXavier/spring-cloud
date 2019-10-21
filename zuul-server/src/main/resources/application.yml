@@ -33,3 +33,10 @@ management:
       base-path: /monitor
       exposure:
         include: ["*"]
+
+spring:
+  zipkin:
+    base-url: http://localhost:7700
+  sleuth:
+    sampler:
+      probability: 1.0
