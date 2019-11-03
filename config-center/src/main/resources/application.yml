@@ -10,7 +10,7 @@ spring:
         git:
           uri: https://github.com/xiaoqiangjava/config-demo.git
           username: 1663589895@qq.com
-          password: xiaoqianggit93321
+          password: ******
           search-paths: config-file
 
 eureka:
